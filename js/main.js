@@ -40,3 +40,24 @@ function inicializaMarcadores() {
         }
     })
 }
+
+function inicializaCronometro() {
+    var tempoRestante = $('#tempo-digitacao').text()
+    campo.on("focus", function() {
+        var cronometroID = setInterval(function() {
+            tempoRestante--
+            $('#tempo-digitacao').text(tempoRestante)
+            if(tempoRestante < 1){
+                clearInterval(cronometroID)
+                finalizaJogo()
+            }
+        }, 1000);
+    })
+}
+
+function finalizaJogo() {
+    campo.attr("disabled", true);
+    campo.toggleClass("campo-desativado");
+    inserePlacar();
+}
+
