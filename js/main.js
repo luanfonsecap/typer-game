@@ -1,3 +1,4 @@
+var tempoInicial = $("#tempo-digitacao").text();
 var campo = $('.campo-digitacao')
 
 $(
@@ -59,5 +60,17 @@ function finalizaJogo() {
     campo.attr("disabled", true);
     campo.toggleClass("campo-desativado");
     inserePlacar();
+}
+
+function reiniciaJogo() {
+    campo.attr("disabled", false)
+    campo.val('')
+    $('#contador-palavras').text(0)
+    $('#contador-caracteres').text(0)
+    $('#contador-palavras').text(tempoInicial)
+    inicializaCronometro()
+    campo.toggleClass('campo-desativado')
+    campo.removeClass('borda-vermelha')
+    campo.removeClass('borda-verde')
 }
 
