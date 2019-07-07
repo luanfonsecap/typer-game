@@ -7,12 +7,14 @@ function inserePlacar() {
     linha.find(".botao-remover").click(removeLinha);
 
     corpoTabela.append(linha);
+
+    $('.placar').slideDown(500);
 }
 
-$('#botao-placar').click(mostraPlacar)
+$('#botao-placar').click(mostraPlacar);
 
 function mostraPlacar(){
-    $('.placar').stop().slideToggle(600)
+    $('.placar').stop().slideToggle(600);
 }
 
 function novaLinha(usuario, palavras) {
@@ -37,5 +39,10 @@ function novaLinha(usuario, palavras) {
 
 function removeLinha() {
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var linha = $(this).parent().parent();
+    linha.fadeOut(1000);
+
+    setTimeout(function(){
+        linha.remove()
+    }, 1000);
 }
