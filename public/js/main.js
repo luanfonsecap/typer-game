@@ -30,8 +30,8 @@ function inicializaContadores() {
 }
 
 function inicializaMarcadores() {
-    var frase = $(".frase").text();
     campo.on("input", function() {
+        var frase = $(".frase").text();
         var digitado = campo.val();
         var comparavel = frase.substr(0, digitado.length);
 
