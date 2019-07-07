@@ -8,5 +8,5 @@ function trocaFraseAleatoria(data){
     var frase = $('.frase');
     var numeroAleatorio = Math.floor(Matg.random() * data.length);
 
-    frase.text(numeroAleatorio);
+    frase.text(data[numeroAleatorio].text);
 }
