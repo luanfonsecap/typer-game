@@ -12,7 +12,7 @@ function inserePlacar() {
 $('#botao-placar').click(mostraPlacar)
 
 function mostraPlacar(){
-    $('.placar').slideToggle(600)
+    $('.placar').stop().slideToggle(600)
 }
 
 function novaLinha(usuario, palavras) {
