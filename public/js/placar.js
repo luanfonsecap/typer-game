@@ -9,6 +9,16 @@ function inserePlacar() {
     corpoTabela.append(linha);
 
     $('.placar').slideDown(500);
+    scrollPlacar();
+}
+
+function scrollPlacar(){
+    var posicaoPlacar = $('.placar').offset().top;
+
+    $('body').animate(
+    {
+        scrollTop: posicaoPlacar +"px"
+    }),1000;
 }
 
 $('#botao-placar').click(mostraPlacar);
