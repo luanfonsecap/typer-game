@@ -9,6 +9,12 @@ function inserePlacar() {
     corpoTabela.append(linha);
 }
 
+$('#botao-placar').click(mostraPlacar)
+
+function mostraPlacar(){
+    $('.placar').slideToggle(600)
+}
+
 function novaLinha(usuario, palavras) {
     var linha = $("<tr>");
     var colunaUsuario = $("<td>").text(usuario);
