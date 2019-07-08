@@ -1,5 +1,6 @@
 $('#botao-frase').click(fraseAleatoria);
 $('#botao-frase-id').click(buscaFrase);
+$("#botao-sync").click(sincronizaPlacar);
 
 function fraseAleatoria(){
     $('#spinner').toggle();
@@ -52,4 +53,29 @@ function trocaFrase(data) {
     frase.text(data.texto);
     atualizaTamanhoFrase();
     atualizaTempoInicial(data.tempo);
+}
+
+function sincronizaPlacar() {
+    var placar = [];
+    var linhas = $('tbody>tr');
+
+    linhas.each(function(){
+        var usuario = $(this).find('td:nth-child(1)').text();
+        var palavras = $(this).find('td:nth-child(2)').text();
+
+        var score = {
+            usuario: usuario,
+            pontos: palavras
+        };
+
+        placar.push(score);
+    });
+
+    var dados = {
+        placar: placar
+    };
+
+    $.post("http://localhost:3000/placar", dados, function(){
+        console.log('Placar sincronizado com sucesso')
+    });
 }
