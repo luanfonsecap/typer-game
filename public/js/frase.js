@@ -6,9 +6,9 @@ function fraseAleatoria(){
 
 function trocaFraseAleatoria(data){
     var frase = $('.frase');
-    var numeroAleatorio = Math.floor(Matg.random() * data.length);
+    var numeroAleatorio = Math.floor(Math.random() * data.length);
 
-    frase.text(data[numeroAleatorio].text);
+    frase.text(data[numeroAleatorio].texto);
     atualizaTamanhoFrase();
     atualizaTempoInicial(data[numeroAleatorio].tempo);
 }
